@@ -15,7 +15,7 @@ public class TopicoService {
     private TopicoRepository repository;
 
 
-    public DatosTopico registroTopico(DatosRegistroTopico datos){
+    public DatosTopico registroTopico(DatosRegistroTopico datos) {
 
         var titulo = datos.titulo();
         var mensaje = datos.mensaje();
@@ -45,5 +45,12 @@ public class TopicoService {
         }
         repository.deleteById(id);
         return "Topico eliminado";
+    }
+
+    public DatosTopico topicoPorId(Long id) {
+        var topico = repository.findById(id)
+                .orElseThrow(() -> new ValidationException("No existe el topico deseado"));
+
+        return new DatosTopico(topico);
     }
 }

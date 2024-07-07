@@ -43,4 +43,10 @@ public class TopicoController {
         var respuesta = service.eliminarTopico(id);
         return ResponseEntity.ok(respuesta);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity topicoPorId(@PathVariable Long id) {
+        var respuesta = service.topicoPorId(id);
+        return ResponseEntity.ok(respuesta);
+    }
 }
