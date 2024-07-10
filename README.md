@@ -1,4 +1,4 @@
-
+![logo generico]()
 
 <h2 align="center">Foro-Hub</h2>
 
