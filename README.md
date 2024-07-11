@@ -1,4 +1,6 @@
-![logo generico]()
+<p align="center">
+   <img src=klipartz.com(1).png>
+</p>
 
 <h2 align="center">Foro-Hub</h2>
 
