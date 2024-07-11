@@ -41,16 +41,14 @@ public class TokenService {
         DecodedJWT verifier = null;
         try {
             Algorithm algorithm = Algorithm.HMAC256(apiSecret);
-            verifier = JWT.require(algorithm)
+            JWTVerifier jwtVerifier = JWT.require(algorithm)
                     .withIssuer("foro hub")
-                    .build()
-                    .verify(token);
-            verifier.getSubject();
-
-        } catch (JWTVerificationException exception) {
-            System.out.println(exception.toString());
+                    .build();
+            verifier = jwtVerifier.verify(token);
+        } catch (JWTVerificationException e) {
+            System.out.println(e.toString());
         }
-        if (verifier.getSubject() == null){
+        if (verifier.getSubject() == null || verifier == null){
             throw new RuntimeException("verifier invalid");
         }
         return verifier.getSubject();
